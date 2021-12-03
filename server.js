@@ -5,7 +5,7 @@ var cors = require('cors');
   bodyParser = require('body-parser'),
   path = require('path');
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/productDB");
+mongoose.connect("mongodb+srv://reda:reda1234@cluster0.ehqxy.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 var fs = require('fs');
 
 var user = require("./model/user.js");
@@ -13,9 +13,8 @@ var user = require("./model/user.js");
 
 
 app.use(cors());
-app.use(express.static('uploads'));
-app.use(bodyParser.json());       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
   extended: false
 }));
 
@@ -136,7 +135,7 @@ function checkUserAndGenerateToken(data, req, res) {
   });
 }
 
-/* Api to add Product */
+/* Api to add Film */
 app.post("/api/favoris", (req, res) => {
   try {
 
@@ -156,7 +155,7 @@ app.post("/api/favoris", (req, res) => {
         } else {
           res.status(200).json({
             status: true,
-            title: 'Product Added successfully.'
+            title: 'Film Added successfully.'
           });
         }
       });
@@ -178,7 +177,7 @@ app.post("/api/favoris", (req, res) => {
 
 
 
-/* Api to delete Product */
+/* Api to delete Film */
 app.delete("/api/favoris", (req, res) => {
   try {
     if (req.body && req.body.id) {
@@ -186,7 +185,7 @@ app.delete("/api/favoris", (req, res) => {
         if (data.is_delete) {
           res.status(200).json({
             status: true,
-            title: 'Product deleted.'
+            title: 'Film deleted.'
           });
         } else {
           res.status(400).json({
