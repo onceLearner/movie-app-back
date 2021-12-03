@@ -6,7 +6,6 @@ var cors = require('cors');
   path = require('path');
 var mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://reda:reda1234@cluster0.ehqxy.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-var fs = require('fs');
 
 var user = require("./model/user.js");
 
@@ -207,6 +206,16 @@ app.delete("/api/favoris", (req, res) => {
     });
   }
 });
+
+// test
+
+// const client = new mongoose("mongodb+srv://reda:reda1234@cluster0.ehqxy.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   console.log("working")
+//   client.close();
+// });
 
 
 const port = process.env.PORT || 5000
