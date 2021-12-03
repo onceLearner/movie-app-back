@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-productSchema = new Schema( {
+FilmSchema = new Schema( {
 	name: String,
 	desc: String,
 	price: Number,
@@ -11,6 +11,6 @@ productSchema = new Schema( {
 	is_delete: { type: Boolean, default: false },
 	date : { type : Date, default: Date.now }
 }),
-product = mongoose.model('product', productSchema);
+film = mongoose.model('film', FilmSchema);
 
-module.exports = product;
+module.exports = film;
